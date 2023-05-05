@@ -1,16 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 
+import { Log } from 'src/app/models/log';
+
 @Component({
   selector: 'app-logs',
   templateUrl: './logs.component.html',
   styleUrls: ['./logs.component.css']
 })
 export class LogsComponent implements OnInit {
-  logs!: {
-    id: string,
-    text: string,
-    date: any
-  }[];
+  logs!: Log[];
 
   constructor() {}
 
