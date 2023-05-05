@@ -1,10 +1,14 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-log-form',
   templateUrl: './log-form.component.html',
   styleUrls: ['./log-form.component.css']
 })
-export class LogFormComponent {
+export class LogFormComponent implements OnInit {
+  text: string = "";
 
+  constructor() {}
+
+  ngOnInit() {}
 }
