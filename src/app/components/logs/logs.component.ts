@@ -12,9 +12,16 @@ import { Log } from 'src/app/models/log';
 export class LogsComponent implements OnInit {
   logs!: Log[];
 
-  constructor(private logService: LogService) {}
+  constructor(private logService: LogService) { }
 
   ngOnInit() {
-   this.logs = this.logService.getLogs();
+    this.logService.getLogs().subscribe(logs => {
+      this.logs = logs;
+    });
+  }
+
+  onSelect(log: Log) {
+    // console.log(log);
+    this.logService.setFormLog(log);
   }
 }
