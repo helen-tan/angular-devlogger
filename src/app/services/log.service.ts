@@ -26,7 +26,18 @@ export class LogService {
   }
 
   getLogs(): Observable<Log[]> {
-    return of(this.logs);
+    // Check if local storage has anthing
+    if (localStorage.getItem('logs') === null) {
+      this.logs = [];
+    } else {
+      const logString = localStorage.getItem('logs');
+      this.logs = logString !== null && JSON.parse(logString);
+    }
+
+    // Sort by date
+    return of(this.logs.sort((a, b) => {
+      return b.date - a.date;
+    }));
   }
 
   setFormLog(log: Log) {
@@ -35,6 +46,9 @@ export class LogService {
 
   addLog(log: Log) {
     this.logs.unshift(log);
+
+    // Add to local storage
+    localStorage.setItem('logs', JSON.stringify(this.logs));
   }
 
   updateLog(log: Log) {
