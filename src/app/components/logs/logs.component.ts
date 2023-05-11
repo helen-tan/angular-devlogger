@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 import { LogService } from 'src/app/services/log.service';
 
-import { Log } from 'src/app/models/log';
+import { Log } from 'src/app/models/Log';
 
 @Component({
   selector: 'app-logs',
