@@ -34,7 +34,7 @@ export class LogService {
   }
 
   updateLog(log: Log) {
-    // Remove the the outdated log
+    // Remove the outdated log
     this.logs.forEach((cur, index) => {
       if (log.id === cur.id) {
         this.logs.splice(index, 1);
@@ -42,5 +42,14 @@ export class LogService {
     })
     // Add new log to the top
     this.logs.unshift(log);
+  }
+
+  deleteLog(log: Log) {
+    // Remove the passed in log
+    this.logs.forEach((cur, index) => {
+      if (log.id === cur.id) {
+        this.logs.splice(index, 1);
+      }
+    })
   }
 }
